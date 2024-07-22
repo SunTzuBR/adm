@@ -1,0 +1,11 @@
+/* Garantir que o body ocupe 100% da altura da tela */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Garantir que o container do gráfico ocupe 100% da altura disponível */
+#container {
+    height: 100%;
+    width: 100%;
+}
