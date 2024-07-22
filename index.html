@@ -2,91 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Chart.js Example</title>
-    <style>
-        /* Garantir que o body ocupe 100% da altura da tela */
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
-        /* Garantir que o container do gráfico ocupe 100% da altura disponível */
-        #container {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        canvas {
-            max-width: 100%;
-            max-height: 100%;
-        }
-    </style>
+    <title>ECharts Example</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-        <canvas id="myChart"></canvas>
-    </div>
+    <div id="container"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Inicializar o gráfico
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: [
-                    'Danos Elétricos',
-                    'Desligamento',
-                    'Devolução de Crédito',
-                    'Fornecer Documentação',
-                    'Reclamação cliente'
-                ],
-                datasets: [{
-                    label: 'Access From',
-                    data: [13, 1, 1, 4, 1],
-                    backgroundColor: [
-                        '#002b4d',
-                        '#606d80',
-                        '#567ebb',
-                        '#2b4c7e',
-                        '#dce0e6'
-                    ],
-                    borderColor: '#fff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(tooltipItem) {
-                                var data = tooltipItem.raw;
-                                var labels = tooltipItem.chart.data.labels;
-                                var index = tooltipItem.dataIndex;
-                                var value = data[index];
-                                var label = labels[index];
-                                
-                                // Formatar o valor monetário
-                                function formatCurrency(value) {
-                                    return new Intl.NumberFormat('pt-BR', {
-                                        style: 'currency',
-                                        currency: 'BRL'
-                                    }).format(value);
-                                }
-
-                                return `${label}: ${value} (${tooltipItem.raw[index]}%) Valor: ${formatCurrency(value)}`;
-                            }
-                        }
-                    },
-                    legend: {
-                        position: 'top'
-                    }
-                }
-            }
-        });
-    </script>
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
